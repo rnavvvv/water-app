@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --ocean: #0b4f6c;
+  --teal: #0e7c86;
+  --aqua: #20bf9f;
+  --bg: #f3f8fa;
+  --ink: #12313d;
+  --muted: #5d7580;
+  --line: #d6e4e9;
+}
+
+* { box-sizing: border-box; }
+html { color-scheme: light; }
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.5;
+}
+
+h2 { font-size: 1.6rem; font-weight: 700; color: var(--ocean); margin: 0 0 16px; }
+h3 { font-size: 1.1rem; font-weight: 600; color: var(--ocean); margin: 24px 0 10px; }
+img { border-radius: 8px; }
+small { color: var(--muted); }
+
+/* buttons */
+button {
+  font-family: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 16px;
+  background: var(--teal);
+  color: #fff;
+  transition: background 0.15s, transform 0.1s;
+}
+button:hover { background: var(--ocean); }
+button:active { transform: scale(0.98); }
+button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* form fields */
+input, select, textarea {
+  font-family: inherit;
+  font-size: 0.95rem;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--ink);
+}
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--teal);
+  box-shadow: 0 0 0 3px rgba(14, 124, 134, 0.18);
+}
+textarea { min-height: 90px; resize: vertical; }
+
+/* any card that uses an inline border (dashboard, admin, drives, badges) */
+div[style*="border: 1px solid"] {
+  background: #fff !important;
+  border: 1px solid var(--line) !important;
+  border-radius: 14px !important;
+  box-shadow: 0 2px 10px rgba(11, 79, 108, 0.06);
+}
+
+/* map rounded + stays under the navbar */
+.leaflet-container { z-index: 0; border-radius: 14px; }
+
+/* navbar */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 12px 24px;
+  background: linear-gradient(90deg, var(--ocean), var(--teal));
+  box-shadow: 0 2px 12px rgba(11, 79, 108, 0.25);
+}
+.nav .brand { font-weight: 800; font-size: 1.25rem; color: #fff; margin-right: 20px; }
+.nav a {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-weight: 500;
+}
+.nav a:hover { background: rgba(255, 255, 255, 0.15); color: #fff; }
+.nav a.active { background: rgba(255, 255, 255, 0.25); color: #fff; }
+.nav .user { margin-left: auto; margin-right: 12px; color: #fff; font-size: 0.9rem; }
+.nav button {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  padding: 6px 14px;
+}
+.nav button:hover { background: rgba(255, 255, 255, 0.15); }
+
+/* login page */
+.auth-wrap {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: linear-gradient(135deg, #0b4f6c, #0e7c86 55%, #20bf9f);
+}
+.auth-card {
+  width: 100%;
+  max-width: 380px;
+  background: #fff;
+  border-radius: 18px;
+  padding: 32px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+}
+.auth-card h2 { text-align: center; margin-bottom: 4px; }
+.auth-card .tagline { text-align: center; color: var(--muted); margin: 0 0 20px; font-size: 0.9rem; }
+.auth-card .logo { text-align: center; font-size: 2.6rem; }
+.auth-card .switch { text-align: center; color: var(--teal); font-weight: 600; cursor: pointer; margin-bottom: 0; }
+.error { color: #c0392b; background: #fdecea; padding: 8px 12px; border-radius: 8px; font-size: 0.9rem; }
